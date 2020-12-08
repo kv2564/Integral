@@ -1,0 +1,30 @@
+#Hastighetsfunktion
+def hastighet(t):
+
+    hastighet = 24*t-1.2*t**2
+
+def position(x0,t1,t2):
+
+    x0 = 0
+    t1=0
+    t2=20
+
+    # Definera intervallet för integralen
+    interval = t2-t1
+    # Deskritisera integralen till "n" bitar med "dt" bredd
+    n = 10000
+    dt = interval / n 
+    # Initiera variabler 
+    ta = t1-t1
+    tb = ta + dt
+    position = x0
+    # Beräkna arean med trapzoidal-regel
+    # Summera arean under grafen för varje bit
+
+    for i in range (1,n):
+        position = position + (tb-ta)*(hastighet(ta)+hastighet(tb))/2
+        ta = tb
+        tb = ta + dt
+
+print (position)
+
